@@ -43,4 +43,16 @@
         
     </select>
 
+    <select id="get_memo" resultType="com.sist.memo.vo.MemoVO" parameterType="String">
+        SELECT *
+        FROM `memo_t`
+        WHERE m_idx = #{m_idx}
+    </select>
+
+    <insert id="write" parameterType="Map">
+        INSERT
+        INTO `memo_t`(content,writer,write_date)
+        VALUES(#{content},#{writer},NOW())
+    </insert>
+
 </mapper>

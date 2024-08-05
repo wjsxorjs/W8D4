@@ -30,5 +30,14 @@ public class MemoService {
         return m_ar;
     }
     
+    public MemoVO getMemo(String m_idx){
+        return m_mapper.get_memo(m_idx);
+    }
+
+    public int write(String content, String writer){
+        return m_mapper.write(content, writer);
+    }
+
+
     
 }

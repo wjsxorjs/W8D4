@@ -12,6 +12,10 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @RestController
@@ -48,6 +52,31 @@ public class MemoController {
         m_map.put("nowPage", nowPage);
 
         return m_map;
+    }
+
+
+    @RequestMapping("/getMemo")
+    @ResponseBody
+    public Map<String, Object> getMemo(@RequestParam String m_idx) {
+        Map<String, Object> m_map = new HashMap<>();
+        
+        MemoVO mvo = m_service.getMemo(m_idx);
+
+        m_map.put("mvo", mvo);
+
+        return m_map;
+    }
+
+    @PostMapping("/write")
+    public String write(@RequestParam String content, String writer) {
+        Map<String, Object> m_map = new HashMap<>();
+        
+        int chk = m_service.write(content, writer);
+
+        m_map.put("result", chk);
+        // m_map.put("result", 1);
+
+        return "/tableList";
     }
     
 

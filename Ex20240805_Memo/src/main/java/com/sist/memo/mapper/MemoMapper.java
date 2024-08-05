@@ -13,4 +13,7 @@ public interface MemoMapper {
 
     List<MemoVO> memoList(String searchType, String searchValue, int begin, int end);
     
+    MemoVO get_memo(String m_idx);
+
+    int write(String content, String writer);
 }
