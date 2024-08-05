@@ -1,4 +1,4 @@
-import {Card, CardContent, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
+import {Button, Card, CardContent, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
 import Link from "next/link"
 
 export default function MemoTable({m_ar}) {
@@ -28,6 +28,11 @@ export default function MemoTable({m_ar}) {
                                 </TableRow>
                             )
                         })}
+                                <TableRow>
+                                    <TableCell colSpan={4} style={{textAlign:'right'}} className="list_item-p">
+                                        <Button variant="contained" href="/write">글쓰기</Button>
+                                    </TableCell>
+                                </TableRow>
                         </TableBody>
                     </Table>
                 </TableContainer>
